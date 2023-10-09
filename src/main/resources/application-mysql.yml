@@ -1,0 +1,23 @@
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    url: jdbc:mysql://localhost:3306/{MYSQLDBNAME}?allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+    username: root
+    password: {PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update  # (1) 스키마 자동 생성
+    show-sql: true      # (2) SQL 쿼리 출력
+    properties:
+      hibernate:
+        format_sql: true  # (3) SQL pretty print
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
