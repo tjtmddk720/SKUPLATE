@@ -1,6 +1,7 @@
 package com.skuplate.server.review.entity;
 
 import com.skuplate.server.audit.Auditable;
+import com.skuplate.server.member.entity.Member;
 import com.skuplate.server.restaurant.entity.Restaurant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,9 @@ public class Review extends Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
-    private Long memberId;
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member;
 
     private String content;
 
