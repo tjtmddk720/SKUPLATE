@@ -16,6 +16,7 @@ public class Review extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "REVIEW_ID")
     private Long reviewId;
 
     private Long memberId;
