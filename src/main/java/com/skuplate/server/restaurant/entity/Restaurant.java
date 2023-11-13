@@ -18,7 +18,7 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long restaurantId;
+    private Long id;
 
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.REMOVE)
     private List<Review> starRateList = new ArrayList<>();
