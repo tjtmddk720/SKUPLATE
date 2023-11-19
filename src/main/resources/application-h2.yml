@@ -1,4 +1,14 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${CLIENT_ID}
+            clientSecret: ${CLIENT_SECRET}
+            scope:
+              - email
+              - profile
   config:
     activate:
       on-profile: h2
@@ -19,12 +29,21 @@ spring:
   sql:
     init:
       data-locations: classpath*:db/h2/data.sql
+
   logging:
     level:
       org:
         springframework:
           orm:
             jpa: DEBUG
+  jwt:
+    key:
+      secret: ${JWT_SECRET_KEY}               # 민감한 정보는 시스템 환경 변수에서 로드한다.
+    access-token-expiration-minutes: 30
+    refresh-token-expiration-minutes: 420
+  mail:
+    address:
+      admin: admin@gmail.com
 ##AWS S3
 #cloud:
 #  aws:

@@ -25,6 +25,8 @@ public class Restaurant {
     private List<Menu> menuList = new ArrayList<>();
     @OneToOne(mappedBy = "restaurant",cascade = CascadeType.REMOVE)
     private Bookmark bookmark;
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.REMOVE)
+    private List<Review> reviewList = new ArrayList<>();
     private String name;
     private String image;
     private Long viewCount;
