@@ -1,11 +1,8 @@
 package com.skuplate.server.restaurant.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skuplate.server.bookmark.entity.Bookmark;
 import com.skuplate.server.menu.entity.Menu;
 import com.skuplate.server.review.entity.Review;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +11,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApiModel(value = "레스토랑의 모든 정보")
 @Entity
 @Getter
 @Setter
@@ -38,7 +34,7 @@ public class Restaurant {
     private boolean wifi;
     private boolean parking;
     private boolean packaging;
-    private String phoneNumber;
+    private Long phoneNumber;
     private String time;
     @Enumerated(value = EnumType.STRING)
     private menuCategory menuCategory;
