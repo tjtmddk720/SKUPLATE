@@ -76,6 +76,13 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("*"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST", "PATCH", "DELETE"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        // 응답 헤더에 노출
+        configuration.setExposedHeaders(Arrays.asList("*", "Authorization", "Refresh"));
+
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(86400L);
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
