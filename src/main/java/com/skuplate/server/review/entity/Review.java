@@ -30,6 +30,6 @@ public class Review extends Auditable {
     private long starRate;
 
     @ManyToOne
-    @JoinColumn(name = "RESTAURANT_ID")
+    @JoinColumn(name = "restaurant_id") // review_id는 restaurant 테이블의 PK에 대한 FK로 연결
     private Restaurant restaurant;
 }

@@ -25,14 +25,17 @@ public class Member {
 
     private String email;
 
-    private String password;
 
     @Enumerated(value = EnumType.STRING)
     private accountProvider provider;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles = new ArrayList<>();
+
+
     public enum accountProvider {
-        google("구글"),
-        CHINA("카카오");
+        GOOGLE("구글"),
+        KAKAO("카카오");
         private String accountProvider;
         accountProvider(String accountProvider){
             this.accountProvider = accountProvider;
@@ -40,5 +43,17 @@ public class Member {
         public String getAccountProvider(){
             return accountProvider;
         }
+    }
+    public void updateEmail(String email) {
+        this.email = email;
+    }
+    public void updateRoles(List<String> roles) {
+        this.roles = roles;
+    }
+    public void updateProvider(accountProvider provider) {
+        this.provider=provider;
+    }
+    public void updateName(String name) {
+        this.name = name;
     }
 }
