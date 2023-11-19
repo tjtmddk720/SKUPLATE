@@ -50,11 +50,11 @@ public class SecurityConfiguration {
                 .and()
                 .formLogin().disable()
                 .httpBasic().disable()
-                .exceptionHandling()  // 추가
-                .authenticationEntryPoint(new MemberAuthenticationEntryPoint())  // 추가
-                .accessDeniedHandler(new MemberAccessDeniedHandler())            // 추가
+                .exceptionHandling()
+                .authenticationEntryPoint(new MemberAuthenticationEntryPoint())
+                .accessDeniedHandler(new MemberAccessDeniedHandler())
                 .and()
-                .apply(new CustomFilterConfigurer())  // 추가
+                .apply(new CustomFilterConfigurer())
                 .and()
                 .authorizeHttpRequests(authorize -> authorize // url authorization 전체 추가
 //                        .antMatchers(HttpMethod.POST, "/*/members").permitAll()    // OAuth 2로 로그인하므로 회원 정보 등록 필요 없음.
@@ -82,7 +82,6 @@ public class SecurityConfiguration {
         return source;
     }
 
-    // 추가
     public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
         @Override
         public void configure(HttpSecurity builder) throws Exception {

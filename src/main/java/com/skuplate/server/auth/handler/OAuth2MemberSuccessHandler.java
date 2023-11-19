@@ -76,7 +76,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         String accessToken = delegateAccessToken(member);
         String refreshToken = delegateRefreshToken(member);
 
-        String uri = createURI(request, accessToken, refreshToken).toString(); // 이걸 지우고
+        String uri = createURI(request, accessToken, refreshToken).toString();
 
         // RefreshToken을 DB에 저장
         RefreshToken saveRefreshToken = RefreshToken.builder()
@@ -86,9 +86,9 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
         refreshTokenRepository.save(saveRefreshToken);
 
-//        String headerValue = "Bearer" + accessToken;
-//        response.setHeader("Authorization", headerValue);
-//        response.setHeader("Refresh", refreshToken);
+        String headerValue = "Bearer" + accessToken;
+        response.setHeader("Authorization", headerValue);
+        response.setHeader("Refresh", refreshToken);
 
         // Front 쪽으로 리다이렉트
         getRedirectStrategy().sendRedirect(request, response, uri);
@@ -136,15 +136,13 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 //        String serverName = request.getServerName();
 
         // 프론트로 리다이렉트
-        // Port 설정을 하지 않으면 기본값은 80 포트
         return UriComponentsBuilder
                 .newInstance()
                 .scheme("http")
-                .host("localhost")
+                .host("localhost") //-> aws로 배포주소로 변경
 //                .port(80)   //-> aws로 배포했을 때 사용
-//                .port(8080)   //-> local 테스트용
-//                .path("/oauth2")  // 리다이렉트 주소 (토큰이 포함된 url 을 받는 주소)
-                .path("/receive-token.html")
+                .path("/") // 리다이렉트 주소 (토큰이 포함된 url 을 받는 주소)
+//                Backend 애플리케이션에서 전달받은 JWT Access Token과 Refresh Token을 웹브라우저의 LocalStorage에 저장한 후 화면 이동 전
                 .queryParams(queryParams)
                 .build()
                 .toUri();

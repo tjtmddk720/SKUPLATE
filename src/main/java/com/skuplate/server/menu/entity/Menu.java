@@ -3,14 +3,12 @@ package com.skuplate.server.menu.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skuplate.server.restaurant.entity.Restaurant;
-import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@ApiModel(value = "메뉴 정보")
 @Entity
 @Getter
 @Setter

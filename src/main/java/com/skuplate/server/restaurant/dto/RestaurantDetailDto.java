@@ -4,7 +4,6 @@ import com.skuplate.server.menu.dto.MenuListDto;
 import com.skuplate.server.menu.entity.Menu;
 import com.skuplate.server.restaurant.entity.Restaurant;
 import com.skuplate.server.restaurant.repository.RestaurantRepository;
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 // 레스토랑 상세 정보에 들어갔을때 나오는 정보들
-@ApiModel(value = "식당 정보 탭에 존재하는 정보들")
 @Data
 @AllArgsConstructor
 @Builder

@@ -1,4 +1,14 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${CLIENT_ID}
+            clientSecret: ${CLIENT_SECRET}
+            scope:
+              - email
+              - profile
   config:
     activate:
       on-profile: mysql
@@ -9,15 +19,39 @@ spring:
     username: root
     password: {PASSWORD}
   jpa:
+    defer-datasource-initialization: true
     hibernate:
-      ddl-auto: update  # (1) 스키마 자동 생성
-    show-sql: true      # (2) SQL 쿼리 출력
+      ddl-auto: update  # 스키마 자동 생성
+    show-sql: true      # SQL 쿼리 출력
     properties:
       hibernate:
-        format_sql: true  # (3) SQL pretty print
-logging:
-  level:
-    org:
-      springframework:
-        orm:
-          jpa: DEBUG
+        format_sql: true  # SQL pretty print
+    sql:
+      init:
+        data-locations: classpath*:db/h2/data.sql
+
+    logging:
+      level:
+        org:
+          springframework:
+            orm:
+              jpa: DEBUG
+    jwt:
+      key:
+        secret: ${JWT_SECRET_KEY}               # 민감한 정보는 시스템 환경 변수에서 로드한다.
+      access-token-expiration-minutes: 30
+      refresh-token-expiration-minutes: 420
+    mail:
+      address:
+        admin: admin@gmail.com
+  cloud:
+    aws:
+      credentials:
+        accessKey: ${AWS_ACCESS_KEY}
+        secretKey: ${AWS_SECRET_ACCESS_KEY}
+      s3:
+        bucket: skuplate
+      stack:
+        auto-: false
+      region:
+        static: ap-northeast-2
