@@ -31,8 +31,8 @@ public class BookmarkController {
 
     // 즐겨찾기 조회
     @GetMapping("/member/{id}")
-    public ResponseEntity<List<Restaurant>> findByMemberId(@PathVariable Long id) {
-        List<Restaurant> bookmarkedRestaurants = bookmarkService.getBookmarkedRestaurantsByMemberId(id);
+    public ResponseEntity<List<Restaurant>> findByMemberId(@PathVariable Long memberId) {
+        List<Restaurant> bookmarkedRestaurants = bookmarkService.getBookmarkedRestaurantsByMemberId(memberId);
         return ResponseEntity.ok(bookmarkedRestaurants);
     }
 }

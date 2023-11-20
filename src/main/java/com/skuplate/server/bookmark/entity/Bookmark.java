@@ -18,10 +18,10 @@ public class Bookmark {
     private Long bookmarkId;
 
     @OneToOne
-    @JoinColumn(name = "RESTAURANT_ID") // restaurant_id는 실제 데이터베이스에서 해당 관계를 나타내는 외래 키 컬럼의 이름입니다.
+    @JoinColumn(name = "restaurant_id") // restaurant_id는 실제 데이터베이스에서 해당 관계를 나타내는 외래 키 컬럼의 이름입니다.
     private Restaurant restaurant;
 
     @ManyToOne
-    @JoinColumn(name = "MEMBER_ID")
+    @JoinColumn(name = "member_id")
     private Member member;
 }
