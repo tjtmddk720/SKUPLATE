@@ -139,9 +139,9 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         return UriComponentsBuilder
                 .newInstance()
                 .scheme("http")
-                .host("localhost") //-> aws로 배포주소로 변경
-//                .port(80)   //-> aws로 배포했을 때 사용
-                .path("/") // 리다이렉트 주소 (토큰이 포함된 url 을 받는 주소)
+//                .host("localhost") //-> aws로 배포주소로 변경
+                .port(80)   //-> aws로 배포했을 때 사용
+                .path("/auth/google") // 리다이렉트 주소 (토큰이 포함된 url 을 받는 주소)
 //                Backend 애플리케이션에서 전달받은 JWT Access Token과 Refresh Token을 웹브라우저의 LocalStorage에 저장한 후 화면 이동 전
                 .queryParams(queryParams)
                 .build()
