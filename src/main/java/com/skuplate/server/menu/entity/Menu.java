@@ -20,7 +20,7 @@ public class Menu {
     private Long menuId;
 
     private String mainName;
-    private int cost;
+    private Integer cost;
     private String image;
     private String sideName;
 

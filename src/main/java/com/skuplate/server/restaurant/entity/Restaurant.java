@@ -19,15 +19,20 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long restaurantId;
+    private Long id;
+
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.REMOVE)
     private List<Review> starRateList = new ArrayList<>();
+
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.REMOVE)
     private List<Menu> menuList = new ArrayList<>();
+
     @OneToOne(mappedBy = "restaurant",cascade = CascadeType.REMOVE)
     private Bookmark bookmark;
+
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.REMOVE)
     private List<Review> reviewList = new ArrayList<>();
+
     private String name;
     private String image;
     private Long viewCount;
@@ -39,6 +44,7 @@ public class Restaurant {
     private boolean packaging;
     private String phoneNumber;
     private String time;
+
     @Enumerated(value = EnumType.STRING)
     private menuCategory menuCategory;
     public enum menuCategory {
