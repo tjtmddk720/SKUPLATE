@@ -31,7 +31,7 @@ public class RestaurantService {
         List<Restaurant> allRestaurants = restaurantRepository.findAll();
         List<RestaurantDto> restaurantDtoList = new ArrayList<>();
         allRestaurants.forEach(restaurant -> {
-            restaurantDtoList.add(RestaurantDto.builder().restaurantId(restaurant.getRestaurantId()).image(restaurant.getImage()).restaurantName(restaurant.getName()).menuCategory(restaurant.getMenuCategory()).build());
+            restaurantDtoList.add(RestaurantDto.builder().restaurantId(restaurant.getId()).image(restaurant.getImage()).restaurantName(restaurant.getName()).menuCategory(restaurant.getMenuCategory()).build());
         });
         return restaurantDtoList;
     }
@@ -41,7 +41,7 @@ public class RestaurantService {
         List<Restaurant> allRestaurants = restaurantRepository.findAllByMenuCategory(theCategory);
         List<RestaurantDto> restaurantDtoList = new ArrayList<>();
         allRestaurants.forEach(restaurant -> {
-            restaurantDtoList.add(RestaurantDto.builder().restaurantId(restaurant.getRestaurantId()).image(restaurant.getImage()).restaurantName(restaurant.getName()).menuCategory(restaurant.getMenuCategory()).build());
+            restaurantDtoList.add(RestaurantDto.builder().restaurantId(restaurant.getId()).image(restaurant.getImage()).restaurantName(restaurant.getName()).menuCategory(restaurant.getMenuCategory()).build());
         });
         return restaurantDtoList;
     }
