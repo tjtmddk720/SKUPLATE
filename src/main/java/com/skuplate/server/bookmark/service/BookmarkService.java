@@ -25,7 +25,7 @@ public class BookmarkService {
     @Transactional
     public void addBookmark(Long memberId, Long restaurantId) {
         Member member = new Member();
-        member.setMemberId(memberId);
+        member.setId(memberId);
 
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
                 .orElseThrow(() -> new DataNotFoundException("Restaurant not found with id: " + restaurantId));

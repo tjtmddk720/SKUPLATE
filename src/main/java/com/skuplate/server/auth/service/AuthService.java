@@ -39,7 +39,7 @@ public class AuthService {
 
         Member member = findMemberByRefreshToken(refreshToken);
 
-        RefreshToken storedRefreshToken = authRepository.findRefreshTokenByMemberId(member.getMemberId());
+        RefreshToken storedRefreshToken = authRepository.findRefreshTokenByMemberId(member.getId());
 
 
         if(refreshToken.equals(storedRefreshToken.getRefreshToken())){
@@ -57,7 +57,7 @@ public class AuthService {
 
         Member member = findMemberByRefreshToken(refreshToken);
 
-        authRepository.deleteRefreshTokenByMemberId(member.getMemberId());
+        authRepository.deleteRefreshTokenByMemberId(member.getId());
     }
 
     public Member findMemberByRefreshToken(String refreshToken){

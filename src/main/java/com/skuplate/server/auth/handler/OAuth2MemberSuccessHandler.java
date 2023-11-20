@@ -80,7 +80,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
 
         // RefreshToken을 DB에 저장
         RefreshToken saveRefreshToken = RefreshToken.builder()
-                .memberId(member.getMemberId())
+                .memberId(member.getId())
                 .refreshToken(refreshToken)
                 .build();
 
