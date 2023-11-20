@@ -1,5 +1,6 @@
 package com.skuplate.server.restaurant.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skuplate.server.bookmark.entity.Bookmark;
 import com.skuplate.server.menu.entity.Menu;
 import com.skuplate.server.review.entity.Review;
@@ -29,6 +30,9 @@ public class Restaurant {
     @OneToOne(mappedBy = "restaurant",cascade = CascadeType.REMOVE)
     private Bookmark bookmark;
 
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.REMOVE)
+    private List<Review> reviewList = new ArrayList<>();
+
     private String name;
     private String image;
     private Long viewCount;
@@ -38,7 +42,7 @@ public class Restaurant {
     private boolean wifi;
     private boolean parking;
     private boolean packaging;
-    private Long phoneNumber;
+    private String phoneNumber;
     private String time;
 
     @Enumerated(value = EnumType.STRING)

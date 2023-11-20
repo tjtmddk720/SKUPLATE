@@ -2,6 +2,7 @@ package com.skuplate.server.review.service;
 
 
 import com.skuplate.server.DataNotFoundException;
+import com.skuplate.server.member.entity.Member;
 import com.skuplate.server.review.entity.Review;
 import com.skuplate.server.review.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
@@ -43,20 +44,20 @@ public class ReviewService {
     }
 
     //리뷰 작성
-    public void createReview(long starRate, String content, String image){
+    public void createReview(long starRate, String content, String image, Member member){
         Review review = new Review();
 
         review.setStarRate(starRate);
         review.setContent(content);
         review.setImage(image);
         review.setCreatedAt(LocalDateTime.now());
+        review.setMember(member);
         this.reviewRepository.save(review);
     }
 
     // 리뷰 수정
-    public void modifyReview(Long id, String content, long starRate, String image){
-        Review review = reviewRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Review not found with id: " + id));
+    public void modifyReview(Review review,String content, long starRate, String image){
+
         review.setStarRate(starRate);
         review.setContent(content);
         review.setImage(image);

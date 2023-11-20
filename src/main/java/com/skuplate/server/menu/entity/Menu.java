@@ -1,6 +1,7 @@
 package com.skuplate.server.menu.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skuplate.server.restaurant.entity.Restaurant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,14 @@ public class Menu {
     private String image;
     private String sideName;
 
+    @JsonIgnore
+    private String category;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "RESTAURANT_ID")
     private Restaurant restaurant;
+
+    @JsonIgnore
+    private String categoryForMenu;
 }
