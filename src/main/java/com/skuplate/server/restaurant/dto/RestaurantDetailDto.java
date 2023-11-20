@@ -35,7 +35,7 @@ public class RestaurantDetailDto {
 
 
     public RestaurantDetailDto(Restaurant theRestaurant){
-        this.restaurantId = theRestaurant.getRestaurantId();
+        this.restaurantId = theRestaurant.getId();
         this.image = theRestaurant.getImage();
         this.restaurantName = theRestaurant.getName();
         this.menuCategory = theRestaurant.getMenuCategory();
