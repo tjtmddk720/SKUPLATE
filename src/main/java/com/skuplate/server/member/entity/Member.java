@@ -25,7 +25,6 @@ public class Member {
 
     private String email;
 
-
     @Enumerated(value = EnumType.STRING)
     private accountProvider provider;
 
