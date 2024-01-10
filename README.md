@@ -31,4 +31,4 @@
 ![image](https://github.com/tjtmddk720/SKUPLATE/assets/83910139/407680c1-fcee-49e3-9f5e-862c4514db8b)
 
 ## 6. ERD
-🔖 [ERD URL](https://dbdiagram.io/d/64c7a12102bd1c4a5eface1e)
+🔖 [ERD URL](https://dbdiagram.io/d/65236f21ffbf5169f0489a36)
